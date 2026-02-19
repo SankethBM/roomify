@@ -24,7 +24,6 @@ export const fetchAsDataUrl = async (url: string): Promise<string> => {
         reader.readAsDataURL(blob);
     });
 };
-};
 
 export const generate3DView = async ({sourceImage}: Generate3DViewParams) => {
     const dataUrl = sourceImage.startsWith("data:")
