@@ -2,6 +2,9 @@ import puter from "@heyputer/puter.js";
 import {ROOMIFY_RENDER_PROMPT} from "./constants";
 
 export const fetchAsDataUrl = async (url: string): Promise<string> => {
+    if (typeof window === "undefined") {
+        throw new Error("fetchAsDataUrl must run in a browser context");
+    }
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`Failed to fetch image: ${response.status}`);
@@ -20,6 +23,7 @@ export const fetchAsDataUrl = async (url: string): Promise<string> => {
         };
         reader.readAsDataURL(blob);
     });
+};
 };
 
 export const generate3DView = async ({sourceImage}: Generate3DViewParams) => {
