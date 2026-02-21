@@ -32,6 +32,12 @@ Start the development server with HMR:
 npm run dev
 ```
 
+Create a local environment file before running the app:
+
+```bash
+cp .env.example .env.local
+```
+
 Your application will be available at `http://localhost:5173`.
 
 ## Building for Production
